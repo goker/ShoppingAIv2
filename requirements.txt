@@ -1,0 +1,15 @@
+# Core
+streamlit
+json
+
+# Core
+streamlit
+
+# Streamlit components
+streamlit-ace
+
+
+# Dependencies
+openai
+langchain
+apify_client
