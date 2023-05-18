@@ -1,6 +1,5 @@
 # Core
 streamlit
-json
 
 # Core
 streamlit
