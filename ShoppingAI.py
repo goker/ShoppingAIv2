@@ -148,7 +148,7 @@ def main():
                 product_json = get_product_details(stripped_link['asin'])
                 st.markdown(product_json['product']['title'])
                 if('description' in product_json['product']):
-                    st.markdown(product_json['product']['desription'])
+                    st.markdown(product_json['product']['description'])
                 if('feature_bullets_flat' in product_json['product']):
                     st.markdown(product_json['product']['feature_bullets_flat'])
                 st.image(product_json['product']['images'][0]['link'],use_column_width='auto')
