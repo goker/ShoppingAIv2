@@ -12,11 +12,17 @@ from langchain.chains import LLMChain, SimpleSequentialChain
 
 Open_AI_Key = os.getenv('OPENAI_API_KEY')
 APIFY_Key = os.getenv('APIFY_API_KEY')
+ASIN_Key= os.getenv('ASIN_API_KEY')
+
+def expand_url(url):
+    session = requests.Session()  # so connections are recycled
+    resp = session.head(url, allow_redirects=True)
+    return(resp.url)
 
 def get_product_details(asin):
     # set up the request parameters
     params = {
-    'api_key': 'BAA8AE82B7624776A5DA9E7D78128241',
+    'api_key': {st.session_state['ASIN_API_KEY']},
     'amazon_domain': 'amazon.com',
     'asin': asin,
     'type': 'product'
@@ -122,13 +128,16 @@ def main():
         with st.sidebar:
             openapikey=st.text_input('Open AI API Key')
             scapperapikey=st.text_input('Scrapper API Key')
+            asinapikey=st.text_input('ASIN API Key')
             if st.button("Set") :
                 st.session_state['OPENAI_API_KEY']=openapikey
                 st.session_state['APIFY_API_KEY']=scapperapikey
+                st.session_state['ASIN_API_KEY']=asinapikey
     else:
         st.session_state['OPENAI_API_KEY']=Open_AI_Key
         st.session_state['APIFY_API_KEY']=APIFY_Key
     product_url=st.text_input('Paste Amazon Product URL')
+    product_url=expand_url(product_url)
     if ( st.button('Get Reviews')):
         [col1,col2]=st.columns([1,1])
         with col1:
