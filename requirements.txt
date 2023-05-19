@@ -12,3 +12,4 @@ streamlit-ace
 openai
 langchain
 apify_client
+requests
