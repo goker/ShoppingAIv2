@@ -15,9 +15,8 @@ APIFY_Key = os.getenv('APIFY_API_KEY')
 ASIN_Key= os.getenv('ASIN_API_KEY')
 
 def expand_url(url):
-    session = requests.Session()  # so connections are recycled
-    resp = session.head(url, allow_redirects=True)
-    return(resp.url)
+    r = requests.get(url)
+    return(r.url)
 
 @st.cache_data
 def get_product_details(asin):
