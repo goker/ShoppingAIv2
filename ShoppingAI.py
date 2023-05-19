@@ -137,8 +137,8 @@ def main():
         st.session_state['OPENAI_API_KEY']=Open_AI_Key
         st.session_state['APIFY_API_KEY']=APIFY_Key
     product_url=st.text_input('Paste Amazon Product URL')
-    product_url=expand_url(product_url)
     if ( st.button('Get Reviews')):
+        product_url=expand_url(product_url)
         [col1,col2]=st.columns([1,1])
         with col1:
             with st.spinner(text="Getting Product ..."):
