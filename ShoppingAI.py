@@ -19,6 +19,7 @@ def expand_url(url):
     resp = session.head(url, allow_redirects=True)
     return(resp.url)
 
+@st.cache_data
 def get_product_details(asin):
     # set up the request parameters
     params = {
