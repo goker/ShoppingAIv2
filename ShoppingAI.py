@@ -153,14 +153,14 @@ def main():
                 else:
                     response=generate_reviews2(review_descriptions[:10000])
                 st.markdown(response)
-            with st.spinner(text="AI in Process ..."):
-                review_descriptions = "|".join([obj["reviewDescription"] for obj in items_array])
-                response=""
-                if len(review_descriptions) <= 10000:
-                    response=generate_why_buy(review_descriptions)
-                else:
-                    response=generate_why_buy(review_descriptions[:10000])
-                st.markdown(response)
+            # with st.spinner(text="AI in Process ..."):
+            #     review_descriptions = "|".join([obj["reviewDescription"] for obj in items_array])
+            #     response=""
+            #     if len(review_descriptions) <= 10000:
+            #         response=generate_why_buy(review_descriptions)
+            #     else:
+            #         response=generate_why_buy(review_descriptions[:10000])
+            #     st.markdown(response)
         
 
 if __name__ == "__main__":
