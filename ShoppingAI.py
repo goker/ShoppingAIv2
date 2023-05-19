@@ -54,7 +54,7 @@ def strip_amazon_link(link):
 def generate_reviews2(text):
     openai.api_key  = st.session_state['OPENAI_API_KEY']
     prompt = f"""
-       You will be given a text where each of the item seperated by | and are reviews of a product, write top 3 important bullet items for pros and cons about it and give overall score using sentimental analysis the score should be out of 100 where 0 is negative and 100 is positive.
+       You will be given a text where each of the item seperated by | and are reviews of a product, write top 3 important bullet items for pros and cons about it and give overall score using sentimental analysis the score should be out of 100 where 0 is negative and 100 is positive. Explain the details about sentimental analysis and why you gave that score
         Text:" {text} "
         """
     print(prompt)
