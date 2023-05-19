@@ -147,7 +147,10 @@ def main():
                 stripped_link=strip_amazon_link(product_url)
                 product_json = get_product_details(stripped_link['asin'])
                 st.markdown(product_json['product']['title'])
-                st.markdown(product_json['product']['feature_bullets_flat'])
+                if('description' in product_json['product']):
+                    st.markdown(product_json['product']['desription'])
+                if('feature_bullets_flat' in product_json['product']):
+                    st.markdown(product_json['product']['feature_bullets_flat'])
                 st.image(product_json['product']['images'][0]['link'],use_column_width='auto')
                 st.markdown(product_json['product']['link']+"?tag=pixelitem0a-20")
         with col2:
